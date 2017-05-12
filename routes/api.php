@@ -38,5 +38,6 @@ Route::group(['middleware' => ['ability:admin,create-users']], function()
     Route::get('users', 'JwtAuthenticateController@index');
 });*/
 
+Route::get('usuarios', 'JwtAuthenticateController@index');
 // Authentication route
 Route::post('authenticate', 'JwtAuthenticateController@authenticate');
