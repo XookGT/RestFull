@@ -1,0 +1,141 @@
+Anotaciones Laravel-autenticacion basada en token
+
+Autenticacion basada en token
+-Se usan en apis
+-El token se envia en la cabezera de cada peticion
+-Libreria JWT-AUTH para Laravel
+
+Frond End
+-Node.js
+-NPM
+-BOWER
+-Yeaman
+-Librerias
+    -Satellizer: Maneja sesiones del lado del cliente
+    -ng-Facebook: Gestiona el API de Facebook
+    -Angular-google-plus: Gestiona el API de Google plus
+    -Angular-toastr: Libreria para generar alertas flotante en la aplicacion
+
+Anotaciones BackEnd
+-Crear el proyecto Laravel
+-Instalar JWT: composer require tymon/jwt-AUTH
+-Documentacion JWT http://github.com/tymondesigns/jwt-auth/wiki
+    -Instalacion:
+         -Agregar provider en app.php-> "Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class"
+         -Agregar alias en app.php -> "JWTAuth" -> 'Tymon\JWTAuth\Facades\JWTAuth::class'
+                                      "JWTFactory"-> Tymon\JWTAuth\Facades\JWTFactory::class
+         -Instalar larave-cors (no necesario en laravel 5.4)
+         -php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+         =php artisan jwt:generate
+         -En config\jwt.php se puede configurar el modelo a usar (Por defecto user) y el tiempo de vida del token
+    -Creacion de Controlador para autenticacion:
+        -php artisan make:controller ApiAuthController
+        -Crear el metodo de autenticacion
+            public funtion UserAuth(Request $request)
+            {
+                $credetials = $request->only('mail','password');
+                $token = null;
+
+                try{
+                    if(!$token=JWTAuth::attempt($credentials))
+                    {
+                        return response()->json(['error'=>'Invalid Credentials'],404);
+                    }  
+                }catch(JWTException $ex)
+                {
+                    return response()->json(['error'=>'Ocurrio un error'], 500);
+                } 
+                return response()-json(compact('token'));
+
+            }
+        -Para hacer pruebas crear un Seeder
+            -php artisan make:seeder UsertTableSeeder
+            -Database\seeders
+                -en la funcion run()
+                
+                public funtion run()
+                {
+                    $user = [
+                        [
+                            'name' => 'Usuario uno',
+                            'email' => 'usuario1@mail.com',
+                            'password' => Hash::make('secret')
+                        ]
+                    ];
+
+                    foreach ($users as @user)
+                    {
+                         \App\User::create($user):
+                    }
+                }
+        -Ahora ir al archivo database seeder y en el metodo run
+            $this->call(UserTableSeeder::class);
+        -configurar .envi
+        -php artisan migrate
+        -php artisan db::seed
+        -Creo las rutas para autenticacion en routes\api.php
+            -Metodo UserAuth por post
+        -En el archivo kernel.php comentar la linea \App\Http\Middleware\VerifyCsrToken::class,
+        -kernel.php agregar Middleware
+            'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class
+            'jwt.refresh' => \Tymon\JWAuth\Middleware\RefreshToken::class,
+        -Probar en Postman y deberia devolver el token para un usuario valido
+
+
+Ahora en Angular 
+Usaremos la herramienta YEOMAN
+yeoman.Instalacion
+
+Que es un conjutno de herramientas:
+YO: Encargada de hacer scanffolding del poryecto
+Grunt: Encargado de hacer tareas de testing, y no hay necesidad de refrezcar el navegador.
+Bower: Packege manager de librerias.
+
+
+En la Carpeta con el proyecto appi
+hacer una nueva Carpeta, no dentro del proyecto api si no donde esta la Carpeta
+crear un api_font (Carpeta)
+
+
+Crear Contorladores
+
+php artisan make:controller Banks --resource
+php artisan make:controller Bills --resource
+php artisan make:controller BillStates --resource
+php artisan make:controller Categories --resource
+php artisan make:controller Cities --resource
+php artisan make:controller Countries --resource
+php artisan make:controller Courses --resource
+php artisan make:controller Days --resource
+php artisan make:controller Levels --resource
+php artisan make:controller PaymentMethods --resource
+php artisan make:controller Payments --resource
+php artisan make:controller PaymentState --resource
+php artisan make:controller Places --resource
+php artisan make:controller ProfileStatuses --resource
+php artisan make:controller Provinces --resource
+php artisan make:controller PurcharseOrders --resource
+php artisan make:controller Roles --resource
+php artisan make:controller Scores --resource
+php artisan make:controller StatePurchaseOrders --resource
+php artisan make:controller StateTutorialPayments --resource
+php artisan make:controller TutorialDays --resource
+php artisan make:controller TutorialHasPlaces --resource
+php artisan make:controller Tutorials --resource
+php artisan make:controller TutorialPayments --resource
+php artisan make:controller TutorPayments --resource
+php artisan make:controller XookCCs --resource
+
+
+Laravel CORS
+Libreria de laravel para permitir peticiones externas a nuestro servidore.
+
+obtenerlo https://github.com/barryvdh/laravel-cors
+
+Instalacion
+composer require barryvdh/laravel-cors
+
+agregar en config/app.php
+
+El service provider
+Barryvdh\Cors\ServiceProvider::class,
