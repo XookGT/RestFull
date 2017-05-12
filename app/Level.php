@@ -17,7 +17,5 @@ class Level extends Model
      */
     protected $fillable = [
             'name',
-            'starts',
-            'rank',
     ];
 }

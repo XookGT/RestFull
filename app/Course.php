@@ -19,7 +19,6 @@ class Course extends Model
             'name',
             'description',
             'starts',
-            'rank',
             'id_categorie',
             'id_level',
     ];

@@ -17,8 +17,7 @@ class Categorie extends Model
      */
     protected $fillable = [
             'name',
-            'starts',
-            'rank',
+
     ];
 
 
