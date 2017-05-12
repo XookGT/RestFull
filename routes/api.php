@@ -32,11 +32,11 @@ Route::group(['middleware' => ['ability:admin,create-users']], function()
     Route::get('users', 'JwtAuthenticateController@index');
 });
 // API route group that we need to protect
-Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']], function()
+/*Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']], function()
 {
     // Protected route
     Route::get('users', 'JwtAuthenticateController@index');
-});
+});*/
 
 // Authentication route
 Route::post('authenticate', 'JwtAuthenticateController@authenticate');
