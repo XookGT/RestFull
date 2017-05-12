@@ -25,10 +25,16 @@ class AddColumsToUser extends Migration
             $table->string('dni_pdf',100)->after('dni')->nullable();
             $table->string('url_cv',100)->after('dni_pdf')->nullable();
             $table->integer('id_profile_status')->unsigned();
+            $table->integer('super')->unsigned()->nullable();
 
             $table->foreign('id_profile_status')
                 ->references('id')
                 ->on('profile_statuses')
+                ->onDelete('cascade');
+
+            $table->foreign('fk_super')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade');
         }
         );
