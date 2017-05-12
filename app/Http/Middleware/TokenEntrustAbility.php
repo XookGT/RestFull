@@ -18,9 +18,8 @@ class TokenEntrustAbility extends BaseMiddleware
      */
     public function handle($request, Closure $next, $roles, $permissions, $validateAll = false)
     {
-        return $this->response('No se que paso pero paso algo', 200);
         if (! $token = $this->auth->setRequest($request)->getToken()) {
-            return $this->respond('tymon.jwt.absent', 'token_not_provided', 400);
+            return $this->respond('tymon.jwt.absent', 'token_not_provided :(', 400);
         }
 
         try {
