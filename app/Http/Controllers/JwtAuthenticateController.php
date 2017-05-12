@@ -19,6 +19,7 @@ class JwtAuthenticateController extends Controller
 
     public function index()
     {
+        return "HOLA";
         return response()->json(['auth'=>Auth::user(), 'users'=>User::all()]);
     }
 
