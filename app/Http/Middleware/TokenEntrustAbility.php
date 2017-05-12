@@ -61,6 +61,10 @@ class TokenEntrustAbility extends BaseMiddleware
             return $this->respond('tymon.jwt.user_not_found', 'user_not_found', 404);
         }
 
+        if (!$request->user()->ability(explode('|', $roles), explode('|', $permissions), array('validate_all' => $validateAll))) {
+            return $this->respond('tymon.jwt.invalid', 'token_invalid', 401, 'Unauthorized');
+        }
+
         $this->events->fire('tymon.jwt.valid', $user);
 
         return $next($request);
