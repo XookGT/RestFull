@@ -38,6 +38,7 @@ class TokenEntrustAbility extends BaseMiddleware
             return $this->respond('tymon.jwt.invalid', 'token_invalid', 401, 'Unauthorized');
         }
 
+        return $this->response('No se que paso pero paso algo', 200);
         $this->events->fire('tymon.jwt.valid', $user);
 
         return $next($request);
