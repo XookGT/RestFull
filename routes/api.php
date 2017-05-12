@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
     
-Route::get('users', 'JwtAuthenticateController@index')->middleware('ability:admin,create-users');;
+Route::get('users', 'JwtAuthenticateController@index')->middleware(TokenEntrustAbility::class);
 
 
 // Route to create a new role
