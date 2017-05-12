@@ -181,7 +181,10 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
         //Provider Zizaco
-        Zizaco\Entrust\EntrustServiceProvider::class
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
+        //Provider of laravel cors
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
