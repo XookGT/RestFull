@@ -17,11 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['ability:admin,create-users']], function()
-{
-    // Protected route
-    Route::get('users', 'JwtAuthenticateController@index');
-});
+    
+Route::get('users', 'JwtAuthenticateController@index')->middleware('ability:admin,create-users');;
+
 
 // Route to create a new role
 Route::post('role', 'JwtAuthenticateController@createRole');
