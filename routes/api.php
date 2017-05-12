@@ -51,7 +51,6 @@ Route::resource('/place','Places');
 Route::resource('/profile-status','ProfileStatuses');
 Route::resource('/province','Provinces');
 Route::resource('/purchase-order','PurchaseOrders');
-Route::resource('/rol','Roles');
 Route::resource('/score','Scores');
 Route::resource('/state-purchase-order','StatePurchaseOrders');
 Route::resource('/state-tutotial-payment','StateTutorialPayments');
