@@ -68,7 +68,7 @@ class TokenEntrustAbility extends BaseMiddleware
         }
         }catch (\Exception $ex)
         {
-            return $this->respond('tymon.jwt.invalid', 'Paso algo', 500, 'Unauthorized');
+            return $this->respond('tymon.jwt.invalid', $ex->getMessage(), 500, 'Unauthorized');
         }
 
         $this->events->fire('tymon.jwt.valid', $user);
