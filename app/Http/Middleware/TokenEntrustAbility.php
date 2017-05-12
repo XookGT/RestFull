@@ -18,6 +18,7 @@ class TokenEntrustAbility extends BaseMiddleware
      */
     public function handle($request, Closure $next, $roles, $permissions, $validateAll = false)
     {
+        return $this->response('No se que paso pero paso algo', 200);
         if (! $token = $this->auth->setRequest($request)->getToken()) {
             return $this->respond('tymon.jwt.absent', 'token_not_provided', 400);
         }
@@ -37,8 +38,7 @@ class TokenEntrustAbility extends BaseMiddleware
        if (!$request->user()->ability(explode('|', $roles), explode('|', $permissions), array('validate_all' => $validateAll))) {
             return $this->respond('tymon.jwt.invalid', 'token_invalid', 401, 'Unauthorized');
         }
-
-        return $this->response('No se que paso pero paso algo', 200);
+        
         $this->events->fire('tymon.jwt.valid', $user);
 
         return $next($request);
