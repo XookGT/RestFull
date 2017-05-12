@@ -32,7 +32,7 @@ class AddColumsToUser extends Migration
                 ->on('profile_statuses')
                 ->onDelete('cascade');
 
-            $table->foreign('fk_super')
+            $table->foreign('super')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
