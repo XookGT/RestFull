@@ -20,16 +20,11 @@ class AddColumsToUser extends Migration
             $table->string('celphone',20)->after('email')->unique();
             $table->string('celphone2',20)->after('celphone')->nullable();
             $table->string('url_crimina_record',100)->after('celphone2')->nullable();
+            $table->dateTime('birthdate');
             $table->string('dni',45)->after('url_crimina_record')->nullable();
             $table->string('dni_pdf',100)->after('dni')->nullable();
             $table->string('url_cv',100)->after('dni_pdf')->nullable();
-            $table->integer('id_rol')->unsigned();
             $table->integer('id_profile_status')->unsigned();
-
-            $table->foreign('id_rol')
-                ->references('id')
-                ->on('roles')
-                ->onDelete('cascade');
 
             $table->foreign('id_profile_status')
                 ->references('id')
