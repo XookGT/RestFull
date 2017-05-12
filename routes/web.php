@@ -15,12 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('authenticate', 'JwtAuthenticateController@authenticate');
-//Routes Only admin
-Route::group(['middleware' => ['ability:admin,create-users']], function()
-{
-    // Protected route
-    Route::get('users', 'JwtAuthenticateController@index');
-});
 
 
