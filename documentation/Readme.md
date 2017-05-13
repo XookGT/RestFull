@@ -27,8 +27,6 @@ this [image](http://www.html5rocks.com/static/images/cors_server_flowchart.png).
 > **Method:** POST
 
 > **Request:**  'name' => 'required|unique:categories',
-                'starts' => 'required',
-                'rank' => 'required'  
                 
                 `http://xook.com.gt:9080/api/categorie`
 
@@ -117,8 +115,6 @@ else
 > **Method:** POST
 
 > **Request:**  'name' => 'required|unique:levels',
-                'starts' => 'required',
-                'rank' => 'required'  
                 
                 `http://xook.com.gt:9080/api/level`
 
