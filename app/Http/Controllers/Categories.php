@@ -112,10 +112,11 @@ class Categories extends Controller
 
             $categorie = Categorie::find($id);
 
-            if(!$categorie=null)
+            if($categorie!=null)
             {
                 $categorie->name = $request->name;
-                $cargorie->save();
+                $categorie->save();
+                return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
                 return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
