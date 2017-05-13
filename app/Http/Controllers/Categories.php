@@ -106,12 +106,8 @@ class Categories extends Controller
     {
         //
         try{
-            return "entra";
-            $this->validate($request,[
-            'name' => 'required',
-            ]);
-
-            return $request->name;
+            //talvez xq alla si son dos atributos y va como arreglo, pero no se voy a probar, marca error aca jaja
+            //supongamos que validamos, dije supongamos
 
             $categorie = Categorie::find($id);
 
