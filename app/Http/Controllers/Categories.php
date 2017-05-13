@@ -40,18 +40,12 @@ class Categories extends Controller
         {
             $this->validate($request,[
             'name' => 'required|unique:categories',
-            'starts' => 'required',
-            'rank' => 'required',
 
             ]);
 
 
             $categorie = new Categorie();
             $categorie->name = $request->name;
-            $categorie->starts = $request->starts;
-            $categorie->rank = $request->rank;
-
-            
             $categorie->save();
 
 
