@@ -110,8 +110,6 @@ class Categories extends Controller
             'name' => 'required',]
             );
 
-            return $request->name;
-
             $categorie = Categorie::find($id);
 
             if($categorie!=null)
