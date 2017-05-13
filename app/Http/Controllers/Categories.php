@@ -176,4 +176,33 @@ class Categories extends Controller
         }
         
     }
+
+    // no se que sea el error voy a hacer un post
+    public function updateCategorie(Request $request)
+    {
+        //
+        try{
+            $this->validate($request,[
+            'name' => 'required',
+            'id' =>'required',
+            ]);
+
+            $categorie = Categorie::find($request->id);
+
+            if(!$categorie=null)
+            {
+                $categorie->name = $request->name;
+                $cargorie->save();
+            }else
+            {
+                return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
+            }
+        }
+        catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
+        
+        
+    }
 }

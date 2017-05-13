@@ -66,4 +66,6 @@ Route::get('/course-all', 'Courses@ShowAll');
 Route::get('/level-name/{name}', 'Levels@SearchByName');
 Route::get('/level-all', 'Levels@ShowAll');
 
+Route::post('/updateCategorie','Categories@updateCategorie');
+
 
