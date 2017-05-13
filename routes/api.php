@@ -33,10 +33,6 @@ Route::group(['middleware' => ['ability:admin,create-users']], function()
 {
     // Protected route
     Route::get('users', 'JwtAuthenticateController@index');
-    Route::get('/categorie-all', 'Categories@ShowAll');
-    Route::get('/course-all', 'Courses@ShowAll');
-
-
 });
 
 Route::resource('/bank','Banks');
@@ -64,10 +60,10 @@ Route::resource('/tutorial','Tutorials');
 Route::resource('/tutorial-payment','TutorialPayments');
 Route::resource('/tutor-payment','TutorPayments');
 Route::resource('/xookcc','XookCCs');
-//Entoces de momento esta esto y los metodos son los mismo del otro ya pase la doc aca tb
-//ahi funciono si autenticacion ahora voy a meter esa ruta a la autenticacion de admin
 Route::get('/categorie-name/{name}', 'Categories@SearchByName');
-
+Route::get('/categorie-all', 'Categories@ShowAll');
+Route::get('/course-all', 'Courses@ShowAll');
 Route::get('/level-name/{name}', 'Levels@SearchByName');
 Route::get('/level-all', 'Levels@ShowAll');
+
 

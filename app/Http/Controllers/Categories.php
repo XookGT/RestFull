@@ -101,9 +101,32 @@ class Categories extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
+        try{
+            $this->validate($request,[
+            'name' => 'required|unique:categories',
+            ]);
+
+            $categorie = Categorie::find($id);
+
+            if(!$categorie=null)
+            {
+                $categorie->name = $request->name;
+                $cargorie->save();
+            }else
+            {
+                return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
+            }
+        }
+        catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
+        
+        
     }
 
     /**
