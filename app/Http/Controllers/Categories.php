@@ -106,6 +106,7 @@ class Categories extends Controller
     {
         //
         try{
+            return "entra";
             $this->validate($request,[
             'name' => 'required',
             ]);
