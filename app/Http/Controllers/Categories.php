@@ -192,7 +192,7 @@ class Categories extends Controller
             if($categorie!=null)
             {
                 $categorie->name = $request->name;
-                $cargorie->save();
+                $categorie->save();
 
                 return response(['msj'=>'Sucessfull!!!'],200);
                 // jaja no hay response
