@@ -54,7 +54,6 @@ class Courses extends Controller
             $course->id_categorie = $request->id_categorie;
             $course->id_level = $request->id_level;
             $course->starts = 0;
-            $course->rank = 0;
 
             
             $course->save();
