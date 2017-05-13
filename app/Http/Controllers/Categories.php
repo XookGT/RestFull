@@ -107,7 +107,7 @@ class Categories extends Controller
         //
         try{
             $this->validate($request,[
-            'name' => 'required|unique:categories',
+            'name' => 'required',
             ]);
 
             $categorie = Categorie::find($id);
