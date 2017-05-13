@@ -192,7 +192,7 @@ class Categories extends Controller
             if(!$categorie=null)
             {
                 $categorie->name = $request->name;
-                $cargorie->save();
+                //$cargorie->save();
             }else
             {
                 return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
