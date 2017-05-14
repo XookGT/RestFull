@@ -31,12 +31,14 @@ this [image](http://www.html5rocks.com/static/images/cors_server_flowchart.png).
 >**Reponse:**	If the credentials are correct, the system will debug an authentication token.
 
 else
+
 				`invalid_credentials` whit code 401
 
-else 		
+else 
+		
 				`If the server does not respond`  `could_not_create_token` whit code 500.
 
-				
+
 ## METHODS FOR CATEGORIES
 
 ### Create new Category
