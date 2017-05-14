@@ -96,6 +96,27 @@ class Levels extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{
+            $this->validate($request,[
+            'name' => 'required|unique:levels',]
+            );
+
+            $level = Level::find($id);
+
+            if($level!=null)
+            {
+                $level->name = $request->name;
+                $level->save();
+                return response(['msj'=>'Sucessfull!!!'],200);
+            }else
+            {
+                return response(['msj'=>'Level does not exists'.$e->getMessage()],502);
+            }
+        }
+        catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
@@ -107,6 +128,22 @@ class Levels extends Controller
     public function destroy($id)
     {
         //
+        try
+        {
+            $level = Level::find($id);
+             if($level!=null)
+            {
+                $level->delete();
+                return response(['msj'=>'Sucessfull!!!'],200);
+            }else
+            {
+                return response(['msj'=>'Level does not exists'.$e->getMessage()],502);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     public function SearchByName($id)

@@ -107,7 +107,7 @@ class Categories extends Controller
         //
         try{
             $this->validate($request,[
-            'name' => 'required',]
+            'name' => 'required|unique:categories',]
             );
 
             $categorie = Categorie::find($id);
@@ -119,7 +119,7 @@ class Categories extends Controller
                 return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
-                return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
+                return response(['msj'=>'Categories does not exists'.$e->getMessage()],502);
             }
         }
         catch(\Exception $e)
@@ -139,6 +139,22 @@ class Categories extends Controller
     public function destroy($id)
     {
         //
+        try
+        {
+            $categorie = Categorie::find($id);
+             if($categorie!=null)
+            {
+                $categorie->delete();
+                return response(['msj'=>'Sucessfull!!!'],200);
+            }else
+            {
+                return response(['msj'=>'Level does not exists'.$e->getMessage()],502);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     public function SearchByName($id)
@@ -177,7 +193,4 @@ class Categories extends Controller
         }
         
     }
-
-//bueno ahi esta entonces jaja, funciono jaja, si hay que cambiar la busqueda por nombre y no por id hay que cambiar la forma
-//de buscar la categoria 
 }
