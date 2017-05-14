@@ -30,6 +30,6 @@ class User extends Authenticatable
 
     public  function getRole()
     {
-        return "Admin";
+        return $this->name;
     }
 }
