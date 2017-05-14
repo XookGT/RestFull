@@ -178,36 +178,6 @@ class Categories extends Controller
         
     }
 
-    // no se que sea el error voy a hacer un post
-    public function updateCategorie(Request $request)
-    {
-        //
-        try{
-            $this->validate($request,[
-            'name' => 'required',
-            'id' =>'required',
-            ]);
-
-            $categorie = Categorie::find($request->id);
-
-            if($categorie!=null)
-            {
-                $categorie->name = $request->name;
-                $categorie->save();
-
-                return response(['msj'=>'Sucessfull!!!'],200);
-                // jaja no hay response
-
-            }else
-            {
-                return response(['msj'=>'Categori do not exists'.$e->getMessage()],502);
-            }
-        }
-        catch(\Exception $e)
-        {
-            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
-        }
-        
-        
-    }
+//bueno ahi esta entonces jaja, funciono jaja, si hay que cambiar la busqueda por nombre y no por id hay que cambiar la forma
+//de buscar la categoria 
 }

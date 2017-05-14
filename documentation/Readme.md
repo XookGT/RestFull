@@ -20,6 +20,23 @@ this [image](http://www.html5rocks.com/static/images/cors_server_flowchart.png).
 * Handles CORS pre-flight OPTIONS requests
 * Adds CORS headers to your responses
 
+## AUTHENTICATION
+>**Method:** POST
+
+>**Request:**  'email' => 'required|email' An email must comply with the regular email address 
+			   'password' => 'required' minium 6 chars.
+
+>**URL:** 		`http://xook.com.gt:88/api/authenticate`
+
+>**Reponse:**	If the credentials are correct, the system will debug an authentication token.
+
+else
+				`invalid_credentials` whit code 401
+
+else 		
+				`If the server does not respond`  `could_not_create_token` whit code 500.
+
+				
 ## METHODS FOR CATEGORIES
 
 ### Create new Category
