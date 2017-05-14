@@ -45,16 +45,11 @@ class JwtAuthenticateController extends Controller
 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        $this->guard()->logout();
 
-        $token = JWTAuth::getToken();
-        if ($token) {
-            JWTAuth::invalidate($token);
-            JWTAuth::unsetToken();
-        }
-        
-        return response("Successfull");
+        return response()->json(['message' => 'Logged out'], 200);
     }
 
     public function authenticate(Request $request)

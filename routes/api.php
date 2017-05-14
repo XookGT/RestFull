@@ -42,7 +42,9 @@ Route::group(['middleware' => 'jwt.auth'], function()
     
 });
 
-Route::post('/logout','JwtAuthenticateController@logout');
+Route::get('logout', 'JwtAuthenticateController@logout')->middleware('auth:api');
+
+
 Route::resource('/bank','Banks');
 Route::resource('/bill','Bills');
 Route::resource('/bill-state','BillStates');
