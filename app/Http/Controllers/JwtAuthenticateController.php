@@ -14,6 +14,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Log;
 
+
 class JwtAuthenticateController extends Controller
 {
 
@@ -28,7 +29,8 @@ class JwtAuthenticateController extends Controller
 
         if($user!=null)
         {
-            return response($user);
+
+            return response($user->getRole());
         }
         else
         {
