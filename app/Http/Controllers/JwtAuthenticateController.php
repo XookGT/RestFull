@@ -24,7 +24,6 @@ class JwtAuthenticateController extends Controller
 
     public function getRole()
     {
-        return response()->json(['auth'=>Auth::user(), 'users'=>User::all()]);
         $user = Auth::user();
 
         if($user!=null)

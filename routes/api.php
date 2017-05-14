@@ -33,6 +33,7 @@ Route::group(['middleware' => ['ability:admin,create-users']], function()
 {
     // Protected route
     Route::get('users', 'JwtAuthenticateController@index');
+    Route::post('/me-role','JwtAuthenticateController@getRole');
 });
 
 Route::resource('/bank','Banks');
@@ -69,5 +70,5 @@ Route::get('/level-all', 'Levels@ShowAll');
 Route::post('/updateCategorie','Categories@updateCategorie');
 //creo que es al crear el objeto perame ya se que es creo
 
-Route::post('/me-role','JwtAuthenticateController@getRole');
+
 
