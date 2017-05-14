@@ -158,6 +158,41 @@ else
 }]
 ```
 
+### Search categorie by Id
+
+>**Method:**  GET
+
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+
+>**Response:** The Method return a JSON whit the information of the categorie and code 200, for example:
+
+```php
+{
+  "id": 2,
+  "name": "Programacion Extrema"
+}
+```
+
+If the categorie does not exist, the server return JSON whit code 404:
+
+```php
+{
+  "Msj": "The categorie does not exist"
+}
+```
+
+If there is a problem the server will return error code 500
+
+### Update the categorie
+
+>**Method:** 	PUT|PATCH
+
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+			  And include the next parameters:
+```php
+			  'name' => 'required|unique:categories'
+```
+
 ## METHODS FOR LEVELS
 
 ### Create new Level
