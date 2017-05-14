@@ -21,6 +21,8 @@ this [image](http://www.html5rocks.com/static/images/cors_server_flowchart.png).
 * Adds CORS headers to your responses
 
 ## AUTHENTICATION
+
+### Login
 >**Method:** POST
 
 >**Request:**  'email' => 'required|email' An email must comply with the regular email address 
@@ -35,7 +37,7 @@ else
 				`invalid_credentials` whit code 401
 
 else 
-		
+
 				`If the server does not respond`  `could_not_create_token` whit code 500.
 
 
