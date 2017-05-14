@@ -38,7 +38,7 @@ Route::group(['middleware' => ['ability:admin,create-users']], function()
 Route::group(['middleware' => 'jwt.auth'], function()
 {
     // Protected route
-    Route::post('/me-role','JwtAuthenticateController@getRole');
+    Route::post('/me/role','JwtAuthenticateController@getRole');
     
 });
 

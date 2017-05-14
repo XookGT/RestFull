@@ -40,6 +40,35 @@ else
 
 				`If the server does not respond`  `could_not_create_token` whit code 500.
 
+### Get My Role
+>**Method:** GET
+
+>**Request:** Whitout Params
+
+>**URL:**	`http://xook.com.gt:88/api/me/role`
+
+>**Response:** If the user has a rol, the server retur JSON whit code 200, for example:
+
+					```php
+					{"role":"admin"} | {"role":"tutor"} | {"role":"user"}
+					```
+
+else
+
+			   If the user does not has a rol, the server return JSON whit code 200 but the mesaje is diferent, for example:
+			   	  
+```php
+{"role":"whitout_role"}
+```
+
+else 	
+
+			  If there is not toke (Not Auth), the server return:
+
+```php
+{"Token_no_provider"}
+```
+
 
 ## METHODS FOR CATEGORIES
 

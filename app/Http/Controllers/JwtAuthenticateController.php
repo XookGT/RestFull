@@ -28,19 +28,19 @@ class JwtAuthenticateController extends Controller
 
         if(Auth::user()->hasRole('admin'))
         {
-            return response(['role'=>'admin'],200);
+            return response(['rol'=>'admin'],200);
         }
         else if(Auth::user()->hasRole('tutor'))
         {
-            return response(['role'=>'tutor'],200);
+            return response(['rol'=>'tutor'],200);
         }
         else if(Auth::user()->hasRole('user'))
         {
-            return response(['role'=>'user'],200);
+            return response(['rol'=>'user'],200);
         }
         else
         {
-            return response(['role'=>'whitout role'],200);
+            return response(['rol'=>'whitout role'],403);
         }
 
     }
