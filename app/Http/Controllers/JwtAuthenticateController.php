@@ -25,17 +25,6 @@ class JwtAuthenticateController extends Controller
 
     public function getRole()
     {
-        /*$user = Auth::user();
-
-        if($user!=null)
-        {
-
-            return response($user->getRole());
-        }
-        else
-        {
-            return response(['msj'=>'You must logged'],500);
-        }*/
 
         if(Auth::user()->hasRole('admin'))
         {
