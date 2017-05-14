@@ -86,7 +86,7 @@ class Levels extends Controller
             }
         }catch(\Exception $ex)
         {
-            return response(['Error'=>'Server responses whit error: '.$ex->getMessage()],404);
+            return response(['Error'=>'Server responses whit error: '.$ex->getMessage()],500);
         }
     }
 
@@ -152,12 +152,12 @@ class Levels extends Controller
                 return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
-                return response(['msj'=>'Level does not exists'.$e->getMessage()],502);
+                return response(['msj'=>'Level does not exists. '],403);
             }
 
         }catch(\Exception $e)
         {
-            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+            return response(['Error'=>'it has ocurred an error'.$e->getMessage()],500);
         }
     }
 
