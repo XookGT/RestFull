@@ -79,8 +79,21 @@ class Categories extends Controller
     public function show($id)
     {
         //
+        try
+        {
+            $categorie = Categorie::find($id);
 
-        dd("Hola y adios");
+            if($categorie!=null)
+            {
+                return response($categorie,200);
+            }else
+            {
+                return response(['Msj'=>'The categorie does not exist'],404);
+            }
+        }catch(\Exception $ex)
+        {
+            return response(['Error'=>'Server responses whit error: '.$ex->getMessage()],404);
+        }
     }
 
     /**
