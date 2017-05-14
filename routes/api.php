@@ -39,6 +39,7 @@ Route::group(['middleware' => 'jwt.auth'], function()
 {
     // Protected route
     Route::post('/me-role','JwtAuthenticateController@getRole');
+    Route::post('/logout','JwtAuthenticateController@logout');
 });
 
 Route::resource('/bank','Banks');

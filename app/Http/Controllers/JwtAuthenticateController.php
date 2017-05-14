@@ -45,6 +45,13 @@ class JwtAuthenticateController extends Controller
 
     }
 
+    public function logout()
+    {
+        JWTAuth::invalidate(JWTAuth::getToken());
+
+        return response("Successfull");
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
