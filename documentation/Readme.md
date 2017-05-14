@@ -49,13 +49,13 @@ else
 
 >**Response:** If the user has a rol, the server retur JSON whit code 200, for example:
 
-					```php
-					{"role":"admin"} | {"role":"tutor"} | {"role":"user"}
-					```
+```php
+{"role":"admin"} | {"role":"tutor"} | {"role":"user"}
+```
 
 else
 
-			   If the user does not has a rol, the server return JSON whit code 200 but the mesaje is diferent, for example:
+If the user does not has a rol, the server return JSON whit code 200 but the mesaje is diferent, for example:
 			   	  
 ```php
 {"role":"whitout_role"}
@@ -63,7 +63,7 @@ else
 
 else 	
 
-			  If there is not toke (Not Auth), the server return:
+If there is not toke (Not Auth), the server return:
 
 ```php
 {"Token_no_provider"}
