@@ -193,6 +193,30 @@ If there is a problem the server will return error code 500
 			  'name' => 'required|unique:categories'
 ```
 
+> **Response:** If the categorie has been  successfully updated  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
+### Delete the categorie
+
+>**Method:** 	DELETE
+
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+
+> **Response:** If the categorie has been  successfully deleted  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
+
+
 ## METHODS FOR LEVELS
 
 ### Create new Level
@@ -249,6 +273,64 @@ else
 	"rank": "0"
 }]
 ```
+
+### Search level by Id
+
+>**Method:**  GET
+
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+
+>**Response:** The Method return a JSON whit the information of the level and code 200, for example:
+
+```php
+{
+  "id": 2,
+  "name": "Diversificado"
+}
+```
+
+If the level does not exist, the server return JSON whit code 404:
+
+```php
+{
+  "Msj": "The level does not exist"
+}
+```
+
+If there is a problem the server will return error code 500
+
+### Update the level
+
+>**Method:** 	PUT|PATCH
+
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+			  And include the next parameters:
+```php
+			  'name' => 'required|unique:level'
+```
+
+> **Response:** If the level has been  successfully updated  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
+### Delete the level
+
+>**Method:** 	DELETE
+
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+
+> **Response:** If the level has been  successfully deleted  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
 
 ## METHODS FOR COURSES
 
