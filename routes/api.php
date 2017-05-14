@@ -69,3 +69,5 @@ Route::get('/level-all', 'Levels@ShowAll');
 Route::post('/updateCategorie','Categories@updateCategorie');
 //creo que es al crear el objeto perame ya se que es creo
 
+Route::post('/gt','JwtAuthenticateController@getAuthenticatedUser');
+
