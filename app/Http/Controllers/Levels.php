@@ -73,6 +73,21 @@ class Levels extends Controller
     public function show($id)
     {
         //
+        try
+        {
+            $level = Level::find($id);
+
+            if($level!=null)
+            {
+                return response($level,200);
+            }else
+            {
+                return response(['Msj'=>'The level does not exist'],404);
+            }
+        }catch(\Exception $ex)
+        {
+            return response(['Error'=>'Server responses whit error: '.$ex->getMessage()],404);
+        }
     }
 
     /**
