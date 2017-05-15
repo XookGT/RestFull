@@ -41,7 +41,7 @@ else
 				`If the server does not respond`  `could_not_create_token` whit code 500.
 
 ### Get My Role
->**Method:** GET
+>**Method:** POST
 
 >**Request:** Whitout Params
 
