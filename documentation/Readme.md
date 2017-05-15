@@ -1,4 +1,4 @@
-<p align="center"><img src="http://xook.com.gt/logo_Xook.png"></p>
+<p align="center"><img src="https://github.com/XookGT/RestFull/blob/master/public/logo_Xook.png"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
