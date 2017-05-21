@@ -396,6 +396,64 @@ else
 }]
 ```
 
+### Show  Course for ID
+> **Method:** GET
+
+> **Request:** This method recives the id course at the url, for example:  `http://xook.com.gt:9080/api/course/1`
+
+> **Response:** This method return the objet JSON whit the information of all levels, for example:
+
+```php
+{
+	"id": "1",
+	"name": "Matematica Aplicada 1",
+	"description": "Segun el pensum de la USAC",
+	"starts": "0",
+	"rank": "0",
+	"id_categorie": "1",
+	"id_level": "1",
+	"categorie": "Matematicas",
+	"level": "Universidad"
+}
+```
+
+### Update the Course
+
+>**Method:** 	PUT|PATCH
+
+>**Request:** Include id course on the URL, for example: `http://xook.com.gt:9080/api/course/1`
+			  And include the next parameters:
+```php
+			'name' => 'required|unique:courses',
+            'description'=>'required',
+            'starts'=>'required|numeric',
+            'id_categorie'=>'required|numeric',
+            'id_level'=>'required|numeric'
+```
+
+> **Response:** If the course has been  successfully updated  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
+
+### Delete the level
+
+>**Method:** 	DELETE
+
+>**Request:** Include id course on the URL, for example: `http://xook.com.gt:9080/api/course/2`
+
+> **Response:** If the course has been  successfully deleted  a message like the following is restored:
+
+                `Successfull!!!` whit code 200
+
+else
+
+                `It has ocurred an error` whit code 500.
+
 ## METHODS FOR TUTORIALS
 
 The defaults are set in `config/cors.php`. Copy this file to your own config directory to modify the values. You can publish the config using this command:
