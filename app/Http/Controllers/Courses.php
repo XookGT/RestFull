@@ -127,7 +127,7 @@ class Courses extends Controller
         //
             try{
             $this->validate($request,[
-            'name' => 'required|unique:course',
+            'name' => 'required|unique:courses',
             'description'=>'required',
             'starts'=>'required|numeric',
             'id_categorie'=>'required|numeric',
