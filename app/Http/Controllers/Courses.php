@@ -88,7 +88,20 @@ class Courses extends Controller
     public function show($id)
     {
         //
-        return response(Course::getAll(),200);
+        try
+        {
+            $course = Course::find($id);
+
+        if ($course != null)
+            return response($course,200);
+        else
+            return response(['Error:'=> 'The course whit id '.$id.' does not exist'],403);
+        }
+        catch (\Exception $ex)
+        {
+            return response(['msj'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }
+        
     }
 
     /**
