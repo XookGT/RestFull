@@ -166,6 +166,22 @@ class Courses extends Controller
     public function destroy($id)
     {
         //
+        try
+        {
+            $course = Course::find($id);
+             if($course!=null)
+            {
+                $course->delete();
+                return response(['msj'=>'Sucessfull!!!'],200);
+            }else
+            {
+                return response(['msj'=>'Course does not exists. '],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     public function ShowAll()

@@ -161,7 +161,7 @@ class Categories extends Controller
                 return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
-                return response(['msj'=>'Level does not exists. '],403);
+                return response(['msj'=>'Categorie does not exists. '],403);
             }
 
         }catch(\Exception $e)
