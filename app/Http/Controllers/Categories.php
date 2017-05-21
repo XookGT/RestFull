@@ -132,7 +132,7 @@ class Categories extends Controller
                 return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
-                return response(['msj'=>'Categories does not exists'.$e->getMessage()],502);
+                return response(['msj'=>'Categories does not exists'],502);
             }
         }
         catch(\Exception $e)

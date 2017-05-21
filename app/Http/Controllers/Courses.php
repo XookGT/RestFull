@@ -125,6 +125,36 @@ class Courses extends Controller
     public function update(Request $request, $id)
     {
         //
+            try{
+            $this->validate($request,[
+            'name' => 'required|unique:course',
+            'description'=>'required',
+            'starts'=>'required|numeric',
+            'id_categorie'=>'required|numeric',
+            'id_level'=>'required|numeric',
+            ]
+            );
+
+            $course = Course::find($id);
+
+            if($course!=null)
+            {
+                $course->name = $request->name;
+                $course->description = $request->description;
+                $course->starts = $request->starts;
+                $course->id_categorie = $request->id_categorie;
+                $course->id_level = $request->id_level;
+                $course->save();
+                return response(['msj'=>'Sucessfull!!!'],200);
+            }else
+            {
+                return response(['msj'=>'Course does not exists'],502);
+            }
+        }
+        catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**

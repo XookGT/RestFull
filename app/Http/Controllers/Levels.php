@@ -125,7 +125,7 @@ class Levels extends Controller
                 return response(['msj'=>'Sucessfull!!!'],200);
             }else
             {
-                return response(['msj'=>'Level does not exists'.$e->getMessage()],502);
+                return response(['msj'=>'Level does not exists'],502);
             }
         }
         catch(\Exception $e)
