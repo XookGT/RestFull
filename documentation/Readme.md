@@ -462,18 +462,37 @@ In this section we are going to speak about the methods for Countries.
 
 >**Method:** POST
 
+>**URL:** http://xook.com.gt:88/api/country
 >**Request:** In this method it must send the name for the new country. 
 ```php
 			'name' => 'required|unique:country'
 ```
 
 >**Response:** If the country has been successfully created, the xook server return a message as the next:
+
 `{"msj":"Successfull!!!. The ID for the new Country is 2"}` whit code 200
 
 else
 
 `{"Error":"it has ocurred an error"}` whit code 500
-			
+
+
+### Show the country for id
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/{id}
+>**Request:** This Method does not recive the params, only the id on the URL. For Example:
+```php
+			'http://xook.com.gt:88/api/country/2'
+```
+>**Response:** If the country whit this ID exist then xook service returned, the country on JSON format.
+```php
+{
+	"id": 2,
+	"name": "Guatemala"
+}
+```
+
 ## METHODS FOR TUTORIALS
 To allow CORS for all your routes, add the `HandleCors` middleware to the global middleware:
 ```php
