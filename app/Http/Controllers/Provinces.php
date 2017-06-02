@@ -114,6 +114,42 @@ class Provinces extends Controller
     public function update(Request $request, $id)
     {
         //
+                try
+        {
+            $this->validate($request,[
+            'name' => 'unique:provinces,name,NULL,id,id_country,'.$request->id_country
+            ]);
+
+
+            $province = Province::find($id);
+
+            if ($province !=null)
+            {
+                $province->name = $request->name;
+                $province->id_country = $request->id_country;
+                $province->save();
+                return response(['msj'=>'Successfull!!!. The province has been update '.$province->id],200);
+            }
+            else
+            {
+                return response(['msj'=>'The Provinces does not exist'],403);
+            }
+            
+
+            /*
+                200 ok
+                500 error del servidor
+                404 not found
+                403 bad request
+                503 bad gw
+            */
+
+        }
+        catch (\Exception $e)
+        {
+
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
