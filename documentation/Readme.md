@@ -481,10 +481,12 @@ else
 >**Method:** GET
 
 >**URL:** http://xook.com.gt:88/api/{id}
->**Request:** This Method does not recive the params, only the id on the URL. For Example:
+
+>**Request:** This Method does not recive the parameters, only the id on the URL. For Example:
 ```php
 			'http://xook.com.gt:88/api/country/2'
 ```
+
 >**Response:** If the country whit this ID exist then xook service returned, the country on JSON format.
 ```php
 {
