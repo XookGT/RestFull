@@ -480,7 +480,7 @@ else
 ### Show the country for id
 >**Method:** GET
 
->**URL:** http://xook.com.gt:88/api/{id}
+>**URL:** http://xook.com.gt:88/api/country/{id}
 
 >**Request:** This Method does not recive the parameters, only the id on the URL. For Example:
 ```php
@@ -505,7 +505,7 @@ else the country does not exist xook service return, the next message:
 ### Update the country
 >**Method:** PUT
 
->**URL:** http://xook.com.gt:88/api/{id}
+>**URL:** http://xook.com.gt:88/api/country/{id}
 
 >**Request:** In this method it must send the new name for the  country. 
 ```php
@@ -529,7 +529,7 @@ else xook service return code 403 and the next message:
 ### Delete the country
 >**Method:** DELETE
 
->**URL:** http://xook.com.gt:88/api/{id}
+>**URL:** http://xook.com.gt:88/api/country/{id}
 
 >**Request:** This method does not recive parameters.
 
@@ -547,16 +547,106 @@ else xook service return code 403 and the next message:
 }
 ```
 
-## METHODS FOR TUTORIALS
-To allow CORS for all your routes, add the `HandleCors` middleware to the global middleware:
+## METHODS FOR PROVINCES
+In this section we are going to speak about the methods for Provinces.
+
+### Create a new Province
+
+>**Method:** POST
+
+>**URL:** http://xook.com.gt:88/api/province
+>**Request:** In this method it must send the name for the new province. 
 ```php
-$app->middleware([
-    // ...
-    \Barryvdh\Cors\HandleCors::class,
-]);
+			'name' => 'required'
+			'id_country' => 'required|numeric'
+
+			'unique' ='(name, id_country)'
 ```
 
-## METHODS FOR PROVINCES
+>**Response:** If the province has been successfully created, the xook server return a message as the next:
+
+`{"msj":"Successfull!!!. The ID for the new Province is 2"}` whit code 200
+
+else
+
+`{"Error":"it has ocurred an error"}` whit code 500
+
+
+### Show the Province for id
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/province/{id}
+
+>**Request:** This Method does not recive the parameters, only the id on the URL. For Example:
+```php
+			'http://xook.com.gt:88/api/province/2'
+```
+
+>**Response:** If the province whit this ID exist then xook service returned, the country on JSON format.
+```php
+{
+	"id": 2,
+	"name": "Guatemala",
+	"id_country" : 2
+}
+```
+
+else the country does not exist xook service return, the next message:
+```php
+{
+'msj'=>'The province does not exist'
+}
+```
+
+### Update the Province
+>**Method:** PUT
+
+>**URL:** http://xook.com.gt:88/api/province/{id}
+
+>**Request:** In this method it must send the new name for the  province. 
+```php
+			'name' => 'required'
+			'id_country' => 'required|numeric'
+
+			'unique' ='(name, id_country)'
+```
+
+>**Response:** If the province is updated, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The province has ben updated'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The Province does not exist'
+}
+```
+
+### Delete the country
+>**Method:** DELETE
+
+>**URL:** http://xook.com.gt:88/api/province/{id}
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** If the province is delete, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The province has ben deleted'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The province does not exist'
+}
+```
+
+## METHODS FOR TURORIALS
 If you want to allow CORS on a specific middleware group or route, add the `HandleCors` middleware to your group:
 
 ```php
