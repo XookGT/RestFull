@@ -36,7 +36,7 @@ class Countries extends Controller
     public function store(Request $request)
     {
         //
-                try
+        try
         {
             $this->validate($request,[
             'name' => 'required|unique:countries',

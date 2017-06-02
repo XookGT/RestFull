@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Province;
 class Provinces extends Controller
 {
     /**
@@ -35,6 +35,36 @@ class Provinces extends Controller
     public function store(Request $request)
     {
         //
+        try
+        {
+            $this->validate($request,[
+            'name' => 'unique:provinces,name,NULL,id,id_country,'.$request->id_country
+            ]);
+
+
+            $province = new Province();
+            $province->name = $request->name;
+            $province->id_country = $request->id_country;
+            $province->save();
+
+
+
+            return response(['msj'=>'Successfull!!!. The ID for the new Province is '.$province->id],200);
+
+            /*
+                200 ok
+                500 error del servidor
+                404 not found
+                403 bad request
+                503 bad gw
+            */
+
+        }
+        catch (\Exception $e)
+        {
+
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
