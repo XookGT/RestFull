@@ -148,5 +148,22 @@ class Countries extends Controller
     public function destroy($id)
     {
         //
+        try
+        {
+            $country = Country::find($id);
+
+            if ($country != null)
+            {
+                $country->delete();
+                return response(['msj'=>'The country has ben deleted'],200);
+            }else
+            {
+                return response(['Error'=>'The country does not exist'],403);
+            }
+        }
+        catch (\Exception $e)
+        {
+            return response(['Error'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 }
