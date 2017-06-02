@@ -44,6 +44,7 @@ class Countries extends Controller
 
 
             $country = new Country();
+            $country->name = $request->name;
             $country->save();
 
 
