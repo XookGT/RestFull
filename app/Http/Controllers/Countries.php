@@ -126,6 +126,7 @@ class Countries extends Controller
             if ($country != null)
             {
                 $country->name = $request->name;
+                $country->save();
                 return response(['msj'=>'The country has ben updated'],200);
             }else
             {
