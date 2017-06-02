@@ -526,6 +526,27 @@ else xook service return code 403 and the next message:
 }
 ```
 
+### Delete the country
+>**Method:** DELETE
+
+>**URL:** http://xook.com.gt:88/api/{id}
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** If the country is delete, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The country has ben deleted'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The country does not exist'
+}
+```
+
 ## METHODS FOR TUTORIALS
 To allow CORS for all your routes, add the `HandleCors` middleware to the global middleware:
 ```php
