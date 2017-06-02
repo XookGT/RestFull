@@ -115,6 +115,27 @@ class Countries extends Controller
     public function update(Request $request, $id)
     {
         //
+        try
+        {
+            $this->validate($request,[
+            'name' => 'required|unique:countries',
+            ]);
+
+            $country = Country::find($id);
+
+            if ($country != null)
+            {
+                $country->name = $request->name;
+                return response(['msj'=>'The country has ben updated'],200);
+            }else
+            {
+                return response(['Error'=>'The country does not exist'],403);
+            }
+        }
+        catch (\Exception $e)
+        {
+            return response(['Error'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
