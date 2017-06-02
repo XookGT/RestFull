@@ -195,7 +195,7 @@ class Courses extends Controller
                 return response($courses, 200);
             }else
             {
-                return response(['msj'=>'There is not courses'.$e->getMessage()],403);
+                return response(['msj'=>'There is not courses'],403);
             }
 
         }catch(\Exception $e)

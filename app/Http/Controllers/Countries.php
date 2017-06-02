@@ -166,4 +166,24 @@ class Countries extends Controller
             return response(['Error'=>'it has ocurred an error'.$e->getMessage()],500);
         }
     }
+
+    public function ShowAll()
+    {
+        try
+        {
+            $countries = Country::all();
+
+            if($countries!=null)
+            {
+                return response($countries, 200);
+            }else
+            {
+                return response(['msj'=>'There is not countries'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }
+    }
 }

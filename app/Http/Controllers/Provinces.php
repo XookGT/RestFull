@@ -178,4 +178,24 @@ class Provinces extends Controller
             return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
         }
     }
+
+    public function ShowAll()
+    {
+        try
+        {
+            $provinces = Province::all();
+
+            if($provinces!=null)
+            {
+                return response($provinces, 200);
+            }else
+            {
+                return response(['msj'=>'There is not provinces'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }
+    }
 }
