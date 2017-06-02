@@ -547,6 +547,36 @@ else xook service return code 403 and the next message:
 }
 ```
 
+### Get All Countries
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/country-all
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** Return all the countries:
+```php
+{
+[{
+	"id": 2,
+	"name": "Guatemala"
+}, {
+	"id": 3,
+	"name": "Mexico"
+}, {
+	"id": 4,
+	"name": "Pais uno"
+}]
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The countries does not exist'
+}
+```
+
 ## METHODS FOR PROVINCES
 In this section we are going to speak about the methods for Provinces.
 
@@ -625,7 +655,7 @@ else xook service return code 403 and the next message:
 }
 ```
 
-### Delete the country
+### Delete the province
 >**Method:** DELETE
 
 >**URL:** http://xook.com.gt:88/api/province/{id}
@@ -643,6 +673,35 @@ else xook service return code 403 and the next message:
 ```php
 {
 'Error'=>'The province does not exist'
+}
+```
+
+### Get All Province
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/province-all
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** Return all the provinces:
+```php
+[{
+		"id": 2,
+		"name": "Guatemala",
+		"id_country": "3"
+	},
+	{
+		"id": 3,
+		"name": "Antigua",
+		"id_country": "3"
+	}
+]
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The provinces does not exist'
 }
 ```
 
