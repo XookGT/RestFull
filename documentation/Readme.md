@@ -96,7 +96,7 @@ else
 
 > **Method:** GET
 
-> **Request:** Include categorie name on the URL, for example:  `http://xook.com.gt:9080/api/categorie-name/Matematicas`
+> **Request:** Include categorie name on the URL, for example:  `http://xook.com.gt:88/api/categorie-name/Matematicas`
 
 > **Response:** This method return the objet JSON whit the information of the course, for example:
 
@@ -112,7 +112,7 @@ else
 ### Show All The Categories
 > **Method:** GET
 
-> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:9080/api/categorie-all`
+> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:88/api/categorie-all`
 
 > **Response:** This method return the objet JSON whit the information of all Categories, for example:
 
@@ -164,7 +164,7 @@ else
 
 >**Method:**  GET
 
->**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:88/api/categorie/2`
 
 >**Response:** The Method return a JSON whit the information of the categorie and code 200, for example:
 
@@ -189,7 +189,7 @@ If there is a problem the server will return error code 500
 
 >**Method:** 	PUT|PATCH
 
->**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:88/api/categorie/2`
 			  And include the next parameters:
 ```php
 			  'name' => 'required|unique:categories'
@@ -207,7 +207,7 @@ else
 
 >**Method:** 	DELETE
 
->**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:9080/api/categorie/2`
+>**Request:** Include id categorie on the URL, for example: `http://xook.com.gt:88/api/categorie/2`
 
 > **Response:** If the categorie has been  successfully deleted  a message like the following is restored:
 
@@ -242,7 +242,7 @@ else
 
 > **Method:** GET
 
-> **Request:** Include Level name on the URL, for example:  `http://xook.com.gt:9080/api/level-name/Universidad`
+> **Request:** Include Level name on the URL, for example:  `http://xook.com.gt:88/api/level-name/Universidad`
 
 > **Response:** This method return the objet JSON whit the information of the level, for example:
 
@@ -258,7 +258,7 @@ else
 ### Show All The Levels
 > **Method:** GET
 
-> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:9080/api/level-all`
+> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:88/api/level-all`
 
 > **Response:** This method return the objet JSON whit the information of all levels, for example:
 
@@ -280,7 +280,7 @@ else
 
 >**Method:**  GET
 
->**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:88/api/level/2`
 
 >**Response:** The Method return a JSON whit the information of the level and code 200, for example:
 
@@ -305,7 +305,7 @@ If there is a problem the server will return error code 500
 
 >**Method:** 	PUT|PATCH
 
->**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:88/api/level/2`
 			  And include the next parameters:
 ```php
 			  'name' => 'required|unique:level'
@@ -323,7 +323,7 @@ else
 
 >**Method:** 	DELETE
 
->**Request:** Include id level on the URL, for example: `http://xook.com.gt:9080/api/level/2`
+>**Request:** Include id level on the URL, for example: `http://xook.com.gt:88/api/level/2`
 
 > **Response:** If the level has been  successfully deleted  a message like the following is restored:
 
@@ -358,7 +358,7 @@ else
 ### Show All The Courses
 > **Method:** GET
 
-> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:9080/api/course-all`
+> **Request:** This method no require params, only call de method, for example:  `http://xook.com.gt:88/api/course-all`
 
 > **Response:** This method return the objet JSON whit the information of all levels, for example:
 
@@ -399,7 +399,7 @@ else
 ### Show  Course for ID
 > **Method:** GET
 
-> **Request:** This method recives the id course at the url, for example:  `http://xook.com.gt:9080/api/course/1`
+> **Request:** This method recives the id course at the url, for example:  `http://xook.com.gt:88/api/course/1`
 
 > **Response:** This method return the objet JSON whit the information of all levels, for example:
 
@@ -421,7 +421,7 @@ else
 
 >**Method:** 	PUT|PATCH
 
->**Request:** Include id course on the URL, for example: `http://xook.com.gt:9080/api/course/1`
+>**Request:** Include id course on the URL, for example: `http://xook.com.gt:88/api/course/1`
 			  And include the next parameters:
 ```php
 			'name' => 'required|unique:courses',
@@ -440,11 +440,11 @@ else
                 `It has ocurred an error` whit code 500.
 
 
-### Delete the level
+### Delete the Course
 
 >**Method:** 	DELETE
 
->**Request:** Include id course on the URL, for example: `http://xook.com.gt:9080/api/course/2`
+>**Request:** Include id course on the URL, for example: `http://xook.com.gt:88/api/course/2`
 
 > **Response:** If the course has been  successfully deleted  a message like the following is restored:
 
