@@ -63,7 +63,6 @@ class Countries extends Controller
         catch (\Exception $e)
         {
 
-            //perame ya se que es, es que estan en la routa de autenticacion creo, tiene q estar autenticado
             return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
         }
     }
@@ -77,6 +76,22 @@ class Countries extends Controller
     public function show($id)
     {
         //
+        try
+        {
+            $country = Country::find($id);
+
+            if ($country != null)
+            {
+                return response($country,200);
+            }else
+            {
+                return response(['msj'=>'The course does not exist'],403);
+            }
+        }
+        catch (\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
