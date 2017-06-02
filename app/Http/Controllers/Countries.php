@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country;
 
 class Countries extends Controller
 {
@@ -35,6 +36,35 @@ class Countries extends Controller
     public function store(Request $request)
     {
         //
+                try
+        {
+            $this->validate($request,[
+            'name' => 'required|unique:countries',
+            ]);
+
+
+            $country = new Country();
+            $country->save();
+
+
+
+            return response(['msj'=>'Successfull!!!. The ID for the new Country is '.$country->id],200);
+
+            /*
+                200 ok
+                500 error del servidor
+                404 not found
+                403 bad request
+                503 bad gw
+            */
+
+        }
+        catch (\Exception $e)
+        {
+
+            //perame ya se que es, es que estan en la routa de autenticacion creo, tiene q estar autenticado
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
