@@ -161,5 +161,21 @@ class Provinces extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $province = Province::find($id);
+
+            if ($province!= null)
+            {
+                $province->delete();
+                return response(['msj'=>'The Province has been deleted'],200);
+            }else
+            {
+                return response(['msj'=>'The Province does not exist'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 }
