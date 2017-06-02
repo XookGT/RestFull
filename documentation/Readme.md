@@ -495,6 +495,37 @@ else
 }
 ```
 
+else the country does not exist xook service return, the next message:
+```php
+{
+'msj'=>'The course does not exist'
+}
+```
+
+### Update the country
+>**Method:** PUT
+
+>**URL:** http://xook.com.gt:88/api/{id}
+
+>**Request:** In this method it must send the new name for the  country. 
+```php
+			'name' => 'required|unique:country'
+```
+
+>**Response:** If the country is updated, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The country has ben updated'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The country does not exist'
+}
+```
+
 ## METHODS FOR TUTORIALS
 To allow CORS for all your routes, add the `HandleCors` middleware to the global middleware:
 ```php
