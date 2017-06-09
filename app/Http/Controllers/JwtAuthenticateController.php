@@ -111,7 +111,7 @@ class JwtAuthenticateController extends Controller
         //validar que los campos vienen
         try
         {
-            $this->validate($request,[
+            /*$this->validate($request,[
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6',
@@ -126,6 +126,7 @@ class JwtAuthenticateController extends Controller
                 'id_profile_status' => 'required|numeric',
                 'super' => 'numeric',
                 ]);
+                */
             //Crear un usuario en la base de datos
 
             User::create([
