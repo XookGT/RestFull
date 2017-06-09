@@ -130,19 +130,19 @@ class JwtAuthenticateController extends Controller
             //Crear un usuario en la base de datos
 
             User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => bcrypt($data['password']),
-                'lastname' => $data['lastname'],
-                'celphone' => $data['celphone'],
-                'celphone2' => $data['celphone2'],
-                'url_crimina_record' => $data['naurl_crimina_recordme'],
-                'birthdate' => $data['birthdate'],
-                'dni' => $data['dni'],
-                'dni_pdf' => $data['dni_pdf'],
-                'url_cv' => $data['url_cv'],
-                'id_profile_status' => $data['id_profile_status'],
-                'super' => $data['super'],
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => bcrypt($request['password']),
+                'lastname' => $request['lastname'],
+                'celphone' => $request['celphone'],
+                'celphone2' => $request['celphone2'],
+                'url_crimina_record' => $request['naurl_crimina_recordme'],
+                'birthdate' => $request['birthdate'],
+                'dni' => $request['dni'],
+                'dni_pdf' => $request['dni_pdf'],
+                'url_cv' => $request['url_cv'],
+                'id_profile_status' => $request['id_profile_status'],
+                'super' => $request['super'],
             ]);
 
             return response()->json("created");  
