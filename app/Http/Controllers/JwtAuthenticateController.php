@@ -106,4 +106,5 @@ class JwtAuthenticateController extends Controller
         return response()->json("created");
 
     }
+    
 }
