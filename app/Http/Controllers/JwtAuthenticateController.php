@@ -114,7 +114,7 @@ class JwtAuthenticateController extends Controller
             $this->validate($request,[
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255|unique:users',
-                'password' => 'required|min:6|confirmed',
+                'password' => 'required|min:6',
                 'lastname' => 'required|max:45',
                 'celphone' => 'required|max:20|unique:users',
                 'celphone2' => 'max:20',
@@ -149,7 +149,7 @@ class JwtAuthenticateController extends Controller
         }
         catch (\Exception $e)
         {
-            return response(['Error'=>'it has ocurred an error'.$e->getMessage()],500);
+            return response(['Error'=>'It has ocurred an error. Erro: '.$e->getMessage()],500);
         }
 
     }
