@@ -115,7 +115,6 @@ class JwtAuthenticateController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6|confirmed',
-                'password_confirmation' => 'required',
                 'lastname' => 'required|max:45',
                 'celphone' => 'required|max:20|unique:users',
                 'celphone2' => 'max:20',
