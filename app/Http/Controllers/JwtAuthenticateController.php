@@ -107,4 +107,44 @@ class JwtAuthenticateController extends Controller
 
     }
     
+    public function create(array $data)
+    {
+        validator($data);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'lastname' => $data['lastname'],
+            'celphone' => $data['celphone'],
+            'celphone2' => $data['celphone2'],
+            'url_crimina_record' => $data['naurl_crimina_recordme'],
+            'birthdate' => $data['birthdate'],
+            'dni' => $data['dni'],
+            'dni_pdf' => $data['dni_pdf'],
+            'url_cv' => $data['url_cv'],
+            'id_profile_status' => $data['id_profile_status'],
+            'super' => $data['super'],
+        ]);
+    }
+
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'lastname' => 'required|max:45',
+            'celphone' => 'required|max:20|unique:users',
+            'celphone2' => 'max:20',
+            'url_crimina_record' => 'max:100',
+            'birthdate' => 'required|Date',
+            'dni' => 'required|max:13',
+            'dni_pdf' => 'max:100',
+            'url_cv' => 'max:100',
+            'id_profile_status' => 'required|numeric',
+            'super' => 'numeric'
+
+
+        ]);
+    }
 }
