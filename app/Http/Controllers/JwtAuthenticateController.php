@@ -137,7 +137,7 @@ class JwtAuthenticateController extends Controller
                 'celphone' => $request['celphone'],
                 'celphone2' => $request['celphone2'],
                 'url_crimina_record' => $request['naurl_crimina_recordme'],
-                'birthdate' => $request['birthdate'],
+                'birthdate' => DateTime::createFromFormat('d/m/Y', trim($request['birthdate'])),
                 'dni' => $request['dni'],
                 'dni_pdf' => $request['dni_pdf'],
                 'url_cv' => $request['url_cv'],
