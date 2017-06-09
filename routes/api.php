@@ -81,7 +81,7 @@ Route::get('/province-all', 'Provinces@ShowAll');
 Route::post('/updateCategorie','Categories@updateCategorie');
 //creo que es al crear el objeto perame ya se que es creo
 
-Route::post('register','App\Http\Controllers\Auth\RegisterController@register');
+Route::post('register','/Auth/RegisterController@register');
 
 
 
