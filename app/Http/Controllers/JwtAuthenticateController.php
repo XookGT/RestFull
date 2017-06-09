@@ -109,6 +109,7 @@ class JwtAuthenticateController extends Controller
     
     public function create(array $data)
     {
+        return response('yes');
         validator($data);
         return User::create([
             'name' => $data['name'],
