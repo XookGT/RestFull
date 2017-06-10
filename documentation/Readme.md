@@ -77,7 +77,7 @@ If there is not toke (Not Auth), the server return:
 >**Request:** Include the next parameters:
 
 ```php
-{				'name' => 'required|max:255',
+{	'name' => 'required|max:255',
                 'lastname' => 'required|max:45',
                 'email' => 'required|email|max:255|unique:users,email',
                 'password' => 'required|min:6',
