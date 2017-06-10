@@ -71,6 +71,45 @@ If there is not toke (Not Auth), the server return:
 {"Token_no_provider"}
 ```
 
+### CREATE USER
+>**Method:** POST
+
+>**Request:** Include the next parameters:
+
+```php
+{				'name' => 'required|max:255',
+                'lastname' => 'required|max:45',
+                'email' => 'required|email|max:255|unique:users,email',
+                'password' => 'required|min:6',
+                'celphone' => 'required|max:20|unique:users,celphone',
+                'celphone2' => 'max:20',
+                'url_crimina_record' => 'max:100',
+                'birthdate' => 'required',
+                'dni' => 'min:13|max:13|numeric|unique:users,dni',
+                'dni_pdf' => 'max:100',
+                'url_cv' => 'max:100',
+                'id_profile_status' => 'required|numeric',
+                'super' => 'numeric',
+}
+```
+
+>**URL:**	`http://xook.com.gt:88/api/register`
+
+>**Response:** If User has created, the server retur JSON whit code 200, for example:
+
+```php
+"Created"
+```
+
+else
+
+If the user does not created, the server return JSON whit code 500 but the message is diferent, for example:
+			   	  
+```php
+{
+  "Error": "It has ocurred an error. Erro: The given data failed to pass validation."
+}
+```
 
 ## METHODS FOR CATEGORIES
 
