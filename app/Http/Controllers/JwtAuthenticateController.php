@@ -111,22 +111,22 @@ class JwtAuthenticateController extends Controller
         //validar que los campos vienen
         try
         {
-            /*$this->validate($request,[
+            $this->validate($request,[
                 'name' => 'required|max:255',
-                'email' => 'required|email|max:255|unique:users',
+                'email' => 'required|email|max:255|unique:users,email',
                 'password' => 'required|min:6',
                 'lastname' => 'required|max:45',
-                'celphone' => 'required|max:20|unique:users',
+                'celphone' => 'required|max:20|unique:users,celphone',
                 'celphone2' => 'max:20',
                 'url_crimina_record' => 'max:100',
-                'birthdate' => 'required|Date',
+                'birthdate' => 'required',
                 'dni' => 'required|max:13',
                 'dni_pdf' => 'max:100',
                 'url_cv' => 'max:100',
                 'id_profile_status' => 'required|numeric',
                 'super' => 'numeric',
                 ]);
-                */
+                
             //Crear un usuario en la base de datos
 
             User::create([
