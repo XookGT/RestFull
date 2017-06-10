@@ -119,12 +119,12 @@ class JwtAuthenticateController extends Controller
                 'celphone' => 'required|max:20|unique:users,celphone',
                 'celphone2' => 'max:20',
                 'url_crimina_record' => 'max:100',
-                'birthdate' => 'required',
-                /*'dni' => 'required|max:13',
+                //'birthdate' => 'required',
+                'dni' => 'required|max:13',
                 'dni_pdf' => 'max:100',
                 'url_cv' => 'max:100',
                 'id_profile_status' => 'required|numeric',
-                'super' => 'numeric',*/
+                'super' => 'numeric',
                 ]);
                 
             //Crear un usuario en la base de datos
