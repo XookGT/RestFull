@@ -111,6 +111,63 @@ If the user does not created, the server return JSON whit code 500 but the messa
 }
 ```
 
+
+### ASSIGN ROLE
+>**Method:** POST
+
+>**Request:** Include the next parameters:
+```php
+{
+	'email' => 'The user`s email',
+	'name'  => 'The role`s name',
+}
+```
+
+```php
+{
+	'role`s name:'
+	[
+		'admin',
+		'tutor',
+		'user',
+
+	]
+}
+```
+>**URL:**	`http://xook.com.gt:88/api/assign-role`
+
+>**Response:** If the role has assigned to user, the server retur JSON whit code 200, for example:
+```php
+{
+	'Msj'=>'Role assigned'
+}
+```
+
+else
+		If ocurred an error the message maybe be:
+
+```php
+{
+	'Error'=>'The User does not exist',
+	'code' => '403'
+}
+```
+
+```php
+{
+	'Error'=>'The Role does not exist',
+	'code' => '403'
+}
+```
+
+```php
+{
+	'Error'=>'It has ocurred an error. Erro: ' + Error,
+	'code' => '500'
+}
+```
+
+
 ## METHODS FOR CATEGORIES
 
 ### Create new Category

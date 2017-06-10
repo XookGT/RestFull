@@ -87,14 +87,32 @@ class JwtAuthenticateController extends Controller
     }
 
     public function assignRole(Request $request){
+        try
+        {
+
+            $user = User::where('email', '=', $request->input('email'))->first();
+
+            $role = Role::where('name', '=', $request->input('role'))->first();
+            
+            if($user == null)
+            {
+                return response(['Error'=>'The User does not exist'],403);
+            }
+
+            if($role == null)
+            {
+                return response(['Error'=>'The Role does not exist'],403);
+            }
+            //$user->attachRole($request->input('role'));
+            $user->roles()->attach($role->id);
+
+            return response(['Msj'=>'Role assigned'],200);
+        }
+        catch (\Exception $e)
+        {
+            return response(['Error'=>'It has ocurred an error. Erro: '.$e->getMessage()],500);
+        }
         
-        $user = User::where('email', '=', $request->input('email'))->first();
-
-        $role = Role::where('name', '=', $request->input('role'))->first();
-        //$user->attachRole($request->input('role'));
-        $user->roles()->attach($role->id);
-
-        return response()->json("created");
     }
 
     public function attachPermission(Request $request){
