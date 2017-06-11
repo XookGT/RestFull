@@ -119,7 +119,7 @@ If the user does not created, the server return JSON whit code 500 but the messa
 ```php
 {
 	'email' => 'The user`s email',
-	'name'  => 'The role`s name',
+	'role'  => 'The role`s name',
 }
 ```
 
