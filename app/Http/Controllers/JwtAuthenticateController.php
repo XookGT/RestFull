@@ -184,7 +184,7 @@ class JwtAuthenticateController extends Controller
             {
                 if($request->has('name'))
                 {
-                    $use->name = $request->name;
+                    $user->name = $request->name;
                 }
 
                 $user->save();
@@ -211,29 +211,10 @@ class JwtAuthenticateController extends Controller
                 ]);*/
                 
             //Crear un usuario en la base de datos
-
-            User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => bcrypt($request['password']),
-                'lastname' => $request['lastname'],
-                'celphone' => $request['celphone'],
-                'celphone2' => $request['celphone2'],
-                'url_crimina_record' => $request['naurl_crimina_recordme'],
-                'birthdate' => $request['birthdate'],
-                'dni' => $request['dni'],
-                'dni_pdf' => $request['dni_pdf'],
-                'url_cv' => $request['url_cv'],
-                'id_profile_status' => $request['id_profile_status'],
-                'super' => $request['super'],
-            ]);
-
-             
-
         }
         catch (\Exception $e)
         {
-            return response(['Error'=>'It has ocurred an error. Erro: '.$e->getMessage()],500);
+            return response(['Error'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
         }
 
     }
