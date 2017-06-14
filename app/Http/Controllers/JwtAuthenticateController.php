@@ -179,7 +179,7 @@ class JwtAuthenticateController extends Controller
         {
             
             $user = USER::where('email',$email)->first();
-            return response(['msj'=>$user],200);
+            //return response(['msj'=>$user],200);
             if($user != null)
             {
                 if($request->has('name'))
