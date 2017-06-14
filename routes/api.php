@@ -82,6 +82,6 @@ Route::post('/updateCategorie','Categories@updateCategorie');
 //creo que es al crear el objeto perame ya se que es creo
 
 Route::post('register','JwtAuthenticateController@create');
-Route::put('/user/{email}/update','JwtAuthenticateController@update');
+Route::put('/user/{email}','JwtAuthenticateController@update');
 
 
