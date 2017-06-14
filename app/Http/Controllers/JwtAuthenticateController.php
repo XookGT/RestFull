@@ -172,4 +172,67 @@ class JwtAuthenticateController extends Controller
         }
 
     }
+
+        public function update(Request $request, $email){
+        //validar que los campos vienen
+        try
+        {
+            $user = USER::where('email',$email)->first();
+
+            if($user != null)
+            {
+                if($request->name)
+                {
+                    $use->name = $request->name;
+                }
+
+                return response(['msj'=>'Successfull!!'],200); 
+            }
+            else
+            {
+                return response(['Error'=>'User does not exist'],403);
+            }
+            /*$this->validate($request,[
+                'name' => 'required|max:255',
+                'email' => 'required|email|max:255|unique:users,email',
+                'password' => 'required|min:6',
+                'lastname' => 'required|max:45',
+                'celphone' => 'required|max:20|unique:users,celphone',
+                'celphone2' => 'max:20',
+                'url_crimina_record' => 'max:100',
+                'birthdate' => 'required',
+                'dni' => 'min:13|max:13|numeric|unique:users,dni',
+                'dni_pdf' => 'max:100',
+                'url_cv' => 'max:100',
+                'id_profile_status' => 'required|numeric',
+                'super' => 'numeric',
+                ]);*/
+                
+            //Crear un usuario en la base de datos
+
+            User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => bcrypt($request['password']),
+                'lastname' => $request['lastname'],
+                'celphone' => $request['celphone'],
+                'celphone2' => $request['celphone2'],
+                'url_crimina_record' => $request['naurl_crimina_recordme'],
+                'birthdate' => $request['birthdate'],
+                'dni' => $request['dni'],
+                'dni_pdf' => $request['dni_pdf'],
+                'url_cv' => $request['url_cv'],
+                'id_profile_status' => $request['id_profile_status'],
+                'super' => $request['super'],
+            ]);
+
+             
+
+        }
+        catch (\Exception $e)
+        {
+            return response(['Error'=>'It has ocurred an error. Erro: '.$e->getMessage()],500);
+        }
+
+    }
 }
