@@ -187,6 +187,56 @@ class JwtAuthenticateController extends Controller
                     $user->name = $request->name;
                 }
 
+                if($request->has('lastname'))
+                {
+                    $user->lastname = $request->lastname;
+                }
+
+                if($request->has('celphone'))
+                {
+                    $user->celphone = $request->celphone;
+                }
+
+                if($request->has('celphone2'))
+                {
+                    $user->celphone2 = $request->celphone2;
+                }
+
+                if($request->has('url_crimina_record'))
+                {
+                    $user->url_crimina_record = $request->url_crimina_record;
+                }
+
+                if($request->has('birthdate'))
+                {
+                    $user->birthdate = $request->birthdate;
+                }
+
+                if($request->has('dni'))
+                {
+                    $user->dni = $request->dni;
+                }
+
+                if($request->has('dni_pdf'))
+                {
+                    $user->dni_pdf = $request->dni_pdf;
+                }
+
+                if($request->has('url_cv'))
+                {
+                    $user->url_cv = $request->url_cv;
+                }
+
+                if($request->has('id_profile_status'))
+                {
+                    $user->id_profile_status = $request->id_profile_status;
+                }
+
+                if($request->has('super'))
+                {
+                    $user->super = $request->super;
+                }
+
                 $user->save();
                 return response(['msj'=>'Successfull!!'],200); 
             }
