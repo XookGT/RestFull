@@ -177,6 +177,7 @@ class JwtAuthenticateController extends Controller
         //validar que los campos vienen
         try
         {
+            dd($email);
             $user = USER::where('email',$email)->first();
 
             if($user != null)
