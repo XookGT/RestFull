@@ -182,11 +182,12 @@ class JwtAuthenticateController extends Controller
             return response(['msj'=>$user],200);
             if($user != null)
             {
-                if($request->name)
+                if($request->has('name'))
                 {
                     $use->name = $request->name;
                 }
 
+                $user->save();
                 return response(['msj'=>'Successfull!!'],200); 
             }
             else
