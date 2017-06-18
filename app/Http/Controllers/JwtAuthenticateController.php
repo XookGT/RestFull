@@ -31,10 +31,10 @@ class JwtAuthenticateController extends Controller
 
             if($user != null)
             {
-                return response($user, 200)
+                return response($user, 200);
             }else
             {
-                return response(['Error'=>'User does not exist'], 403)
+                return response(['Error'=>'User does not exist'], 403);
             }
         }
         catch(\Exception $e)
