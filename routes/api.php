@@ -83,5 +83,6 @@ Route::post('/updateCategorie','Categories@updateCategorie');
 
 Route::post('register','JwtAuthenticateController@create');
 Route::put('/user/{email}','JwtAuthenticateController@update');
+Route::get('/user/{email}','JwtAuthenticateController@getUser');
 
 

@@ -23,6 +23,26 @@ class JwtAuthenticateController extends Controller
         return response()->json(['auth'=>Auth::user(), 'users'=>User::all()]);
     }
 
+    public function getUser($email)
+    {
+        try
+        {
+            $user = USER::where('email',$email)->first();
+
+            if($user != null)
+            {
+                return response($user, 200)
+            }else
+            {
+                return response(['Error'=>'User does not exist'], 403)
+            }
+        }
+        catch(\Exception $e)
+        {
+            return response(['Error'=>'It has ocurred an error. Erro: '.$e->getMessage()],500);
+        }
+    }
+
     public function getRole()
     {
 
