@@ -316,7 +316,7 @@ class JwtAuthenticateController extends Controller
 public function avatar(Request $request)
     {
         
-        $path = $request->file('avatar')->store('avatars');
+        $path = $request->file('avatar')->store('local');
         dd('entro');
         return $path;
     }
