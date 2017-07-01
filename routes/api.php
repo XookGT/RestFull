@@ -85,5 +85,5 @@ Route::post('register','JwtAuthenticateController@create');
 Route::put('/user/{email}','JwtAuthenticateController@update');
 Route::get('/user/{email}','JwtAuthenticateController@getUser');
 Route::post('/user/dpi', 'JwtAuthenticateController@saveDPI');
-Route::post('/user/avatar', 'JwtAuthenticateController@avatar');
+Route::post('/user/dni/{email}', 'JwtAuthenticateController@DPI');
 

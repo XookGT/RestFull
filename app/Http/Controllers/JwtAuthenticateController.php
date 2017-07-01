@@ -313,11 +313,25 @@ class JwtAuthenticateController extends Controller
        }
 }
 
-public function avatar(Request $request)
+public function DPI(Request $request, $email)
     {
-        
-        Storage::disk('local')->put('file.txt', $request->file('avatar'));
-        return 'Listo';
+        try
+        {
+        $user = USER::where('email',$email)->first();
+        if($user != null)
+        {
+            Storage::disk('local')->put('DPI.pdf', $request->file('dpi'));
+            return response(['msj'=>'Saved!!'], 200); 
+        }
+        else
+        {
+            return response(['Error'=>'It has ocurred an error. The User does not exists'], 403); 
+        }
+        }
+        catch(\Exception $e)
+        {
+            return response(['Error'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }   
     }
 
 }
