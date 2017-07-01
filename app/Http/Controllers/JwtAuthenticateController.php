@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Log;
+use Storage;
 
 
 class JwtAuthenticateController extends Controller
@@ -311,5 +312,12 @@ class JwtAuthenticateController extends Controller
            return response(['Error'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
        }
 }
+
+public function avatar(Request $request)
+    {
+        $path = $request->file('avatar')->store('avatars');
+
+        return $path;
+    }
 
 }
