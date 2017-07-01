@@ -295,9 +295,9 @@ class JwtAuthenticateController extends Controller
        //obtenemos el campo file definido en el formulario
        try
        {
-           dd("Llego hasta acass");
+           
        $file = $request->file('file');
- 
+       dd("Llego hasta acass");
        //obtenemos el nombre del archivo
        $nombre = $file->getClientOriginalName();
  
