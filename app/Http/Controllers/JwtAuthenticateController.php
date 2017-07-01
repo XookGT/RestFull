@@ -297,10 +297,10 @@ class JwtAuthenticateController extends Controller
        {
            
        $file = $request->file('file');
-       dd("Llego hasta acass");
+       
        //obtenemos el nombre del archivo
        $nombre = $file->getClientOriginalName();
- 
+       dd($nombre);
        //indicamos que queremos guardar un nuevo archivo en el disco local
        \Storage::disk('public')->put($nombre,  \File::get($file));
  
