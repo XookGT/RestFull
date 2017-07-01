@@ -293,6 +293,8 @@ class JwtAuthenticateController extends Controller
 {
  
        //obtenemos el campo file definido en el formulario
+       try
+       {
        $file = $request->file('file');
  
        //obtenemos el nombre del archivo
@@ -301,7 +303,12 @@ class JwtAuthenticateController extends Controller
        //indicamos que queremos guardar un nuevo archivo en el disco local
        \Storage::disk('public')->put($nombre,  \File::get($file));
  
-       return "archivo guardado";
+       return response(['msj'=>'Successfull!!'],200); 
+       }
+       catch(\Exception $e)
+       {
+           return response(['Error'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+       }
 }
 
 }
