@@ -840,6 +840,136 @@ else xook service return code 403 and the next message:
 }
 ```
 
+## METHODS FOR CITIES
+In this section we are gonna speak about the methods for Cities.
+
+### Create a new City
+
+>**Method:** POST
+
+>**URL:** http://xook.com.gt:88/api/city
+>**Request:** In this method it must send the name for the new province. 
+```php
+			'name' => 'required'
+			'id_province' => 'required|numeric'
+
+			'unique' ='(name, id_province)'
+```
+
+>**Response:** If the city has been successfully created, the xook server return a message as the next:
+
+`{"msj":"Successfull!!!. The ID for the new City is 2"}` whit code 200
+
+else
+
+`{"Error":"it has ocurred an error"}` whit code 500
+
+
+### Show the City for id
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/city/{id}
+
+>**Request:** This Method does not recive the parameters, only the id on the URL. For Example:
+```php
+			'http://xook.com.gt:88/api/city/3'
+```
+
+>**Response:** If the city whit this ID exist then xook service returned, the country on JSON format.
+```php
+{
+	"id": 3,
+	"name": "nueva",
+	"id_province": "3"
+}
+```
+
+else the city does not exist xook service return, the next message:
+```php
+{
+'msj'=>'The city does not exist'
+}
+```
+
+### Update the City
+>**Method:** PUT
+
+>**URL:** http://xook.com.gt:88/api/city/{id}
+
+>**Request:** In this method it must send the new name for the  province. 
+```php
+			'name' => 'required'
+			'id_province' => 'required|numeric'
+
+			'unique' ='(name, id_province)'
+```
+
+>**Response:** If the cty is updated, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The city has ben updated'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The city does not exist'
+}
+```
+
+### Delete the province
+>**Method:** DELETE
+
+>**URL:** http://xook.com.gt:88/api/city/{id}
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** If the city is delete, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The city has ben deleted'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The province does not exist'
+}
+```
+
+### Get All cities
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/city-all
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** Return all the cities:
+```php
+[{
+	"id": 5,
+	"name": "Antigua Guatemala",
+	"id_province": "3"
+}, {
+	"id": 3,
+	"name": "nueva",
+	"id_province": "3"
+}, {
+	"id": 4,
+	"name": "san lucas",
+	"id_province": "3"
+}]
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The cities does not exist'
+}
+```
+
 ## METHODS FOR TURORIALS
 If you want to allow CORS on a specific middleware group or route, add the `HandleCors` middleware to your group:
 
@@ -848,26 +978,6 @@ $app->routeMiddleware([
     // ...
     'cors' => \Barryvdh\Cors\HandleCors::class,
 ]);
-```
-
-## METHODS FOR CITIES
-In order for the package to work, the request has to be a valid CORS request and needs to include an "Origin" header.
-
-When an error occurs, the middleware isn't run completely. So when this happens, you won't see the actual result, but will get a CORS error instead.
-
-This could be a CSRF token error or just a simple problem.
-
-> **Note:** This should be working in Laravel 5.3+.
-
-### Disabling CSRF protection for your API
-
-If possible, use a different route group with CSRF protection enabled. 
-Otherwise you can disable CSRF for certain requests in `App\Http\Middleware\VerifyCsrfToken`:
-
-```php
-protected $except = [
-    'api/*'
-];
 ```
     
 ## License
