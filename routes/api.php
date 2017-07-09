@@ -77,6 +77,7 @@ Route::get('/level-name/{name}', 'Levels@SearchByName');
 Route::get('/level-all', 'Levels@ShowAll');
 Route::get('/country-all', 'Countries@ShowAll');
 Route::get('/province-all', 'Provinces@ShowAll');
+Route::get('/city-all', 'Cities@ShowAll');
 
 Route::post('/updateCategorie','Categories@updateCategorie');
 //creo que es al crear el objeto perame ya se que es creo

@@ -158,5 +158,41 @@ class Cities extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $city = City::find($id);
+
+            if ($city!= null)
+            {
+                $city->delete();
+                return response(['msj'=>'The City has been deleted'],200);
+            }else
+            {
+                return response(['msj'=>'The City does not exist'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
+    }
+
+    public function ShowAll()
+    {
+        try
+        {
+            $cities = City::all();
+
+            if($cities!=null)
+            {
+                return response($cities, 200);
+            }else
+            {
+                return response(['msj'=>'There is not cities'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }
     }
 }
