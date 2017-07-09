@@ -109,6 +109,44 @@ class Cities extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{
+            $this->validate(
+                $request,
+                [
+                    'name'=> 'required|unique:cities,name,NULL,id,id_province,'.$request->id_province,
+                    'id_province' => 'required|numeric'
+                ]
+            );
+
+            $city = City::find($id);
+
+            if($city != null)
+            {
+                $city->name = $request->name;
+                $city->id_province = $request->id_province;
+
+                $city->save();
+
+                return response(
+                    [
+                        'msj' => 'The city had being udated successfull'
+                    ], 
+                    200
+                );
+
+            }else{
+                return response(['Error:'=> 'The city whit id '.$id.' does not exist'],403);
+            }
+
+        }catch(\Exception$e)
+        {
+            return response(
+                [
+                    'msj'=>'it has ocurred an error'.$e->getMessage()
+                ], 
+                500
+            );
+        }
     }
 
     /**
