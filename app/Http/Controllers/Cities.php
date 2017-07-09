@@ -51,7 +51,7 @@ class Cities extends Controller
             $city->id_province = $request->id_province;
             $city->save();
 
-            return response(['msj'=>'Successfull!!!. The ID for the new City is '.$province->id],200);
+            return response(['msj'=>'Successfull!!!. The ID for the new City is '.$city->id],200);
         }catch(\Exception $e)
         {
             return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
