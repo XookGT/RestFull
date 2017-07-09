@@ -66,7 +66,25 @@ class Cities extends Controller
      */
     public function show($id)
     {
-        //
+        //Return the City on format Json
+        try{
+            $city = City::find($id);
+
+            if ($city != null)
+            {
+                return respons(
+                    $city,
+                    200
+                );
+            }
+            else
+            {
+                return response(['Error:'=> 'The city whit id '.$id.' does not exist'],403);
+            }
+        }catch(\Execption $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
