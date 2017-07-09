@@ -67,6 +67,7 @@ class Cities extends Controller
     public function show($id)
     {
         //Return the City on format Json
+        dd('yes');
         try{
             $city = City::find($id);
 
