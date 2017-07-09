@@ -41,7 +41,8 @@ class Provinces extends Controller
             $this->validate(
                 $request,
                 [
-                    'name' => 'required|unique:provinces,name,NULL,id,id_country,'.$request->id_country
+                    'name' => 'required|unique:provinces,name,NULL,id,id_country,'.$request->id_country,
+                    'id_country' => 'required|numeric'
             ]);
 
 

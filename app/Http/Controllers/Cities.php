@@ -41,7 +41,8 @@ class Cities extends Controller
         try{
             $this->validate(
                 $request, [
-                    'name'=> 'required|unique:cities,name,NULL,id,id_province,'.$request->id_province
+                    'name'=> 'required|unique:cities,name,NULL,id,id_province,'.$request->id_province,
+                    'id_province' => 'required|numeric'
                 ]
             );
 
