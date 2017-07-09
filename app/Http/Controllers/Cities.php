@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 
 class Cities extends Controller
 {
@@ -24,6 +25,8 @@ class Cities extends Controller
     public function create()
     {
         //
+
+        
     }
 
     /**
@@ -34,7 +37,24 @@ class Cities extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //function for creating a new city
+        try{
+            $this->validate(
+                $request, [
+                    'name'=> 'required|unique:cities,name,NULL,id,id_province,'.$request->id_province
+                ]
+            );
+
+            $city = new City();
+            $city->name = $request->name;
+            $city->id_province = $request->id_province;
+            $city->save();
+
+            return response(['msj'=>'Successfull!!!. The ID for the new City is '.$province->id],200);
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
