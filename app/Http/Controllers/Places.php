@@ -110,6 +110,46 @@ class Places extends Controller
     public function update(Request $request, $id)
     {
         //
+        try{
+            $this->validate(
+                $request,
+                [
+                    'name'=> 'required|unique:places,name,NULL,id,id_city,'.$request->id_city,
+                    'description' => 'required',
+                    'id_city' => 'required|numeric'
+                ]
+            );
+
+            $place = Place::find($id);
+
+            if($place != null)
+            {
+                $place->name = $request->name;
+                $place->description = $request->description;
+                $place->id_city = $request->id_city;
+
+                $place->save();
+
+                return response(
+                    [
+                        'msj' => 'The place had being udated successfull'
+                    ], 
+                    200
+                );
+
+            }else{
+                return response(['Error:'=> 'The place whit id '.$id.' does not exist'],403);
+            }
+
+        }catch(\Exception$e)
+        {
+            return response(
+                [
+                    'msj'=>'it has ocurred an error'.$e->getMessage()
+                ], 
+                500
+            );
+        }
     }
 
     /**

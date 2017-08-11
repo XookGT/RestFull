@@ -1023,30 +1023,31 @@ else the place does not exist xook service return, the next message:
 }
 ```
 
-### Update the City
+### Update the place
 >**Method:** PUT
 
->**URL:** http://xook.com.gt:88/api/city/{id}
+>**URL:** http://xook.com.gt:88/api/place/{id}
 
->**Request:** In this method it must send the new name for the  province. 
+>**Request:** In this method it must send the new name for the  place. 
 ```php
 			'name' => 'required'
-			'id_province' => 'required|numeric'
+			'description' => 'required'
+			'id_city' => 'required|numeric'
 
-			'unique' ='(name, id_province)'
+			'unique' ='(name, id_city)'
 ```
 
->**Response:** If the cty is updated, xook service return code 200 and the next message:
+>**Response:** If the place is updated, xook service return code 200 and the next message:
 ```php
 {
-	'msj'=>'The city has ben updated'
+	'msj'=>'The place has ben updated'
 }
 ```
 
 else xook service return code 403 and the next message:
 ```php
 {
-'Error'=>'The city does not exist'
+'Error'=>'The place does not exist'
 }
 ```
 
