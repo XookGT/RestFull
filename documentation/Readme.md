@@ -970,6 +970,138 @@ else xook service return code 403 and the next message:
 }
 ```
 
+## METHODS FOR PLACES
+In this section we are gonna speak about the methods for Places.
+
+### Create a new Place
+
+>**Method:** POST
+
+>**URL:** http://xook.com.gt:88/api/place
+>**Request:** In this method it must send the name for the new province. 
+```php
+			'name' => 'required'
+			'description' => 'required'
+			'id_city' => 'required|numeric'
+
+			'unique' ='(name, id_city)'
+```
+
+>**Response:** If the place has been successfully created, the xook server return a message as the next:
+
+`{"msj":"Successfull!!!. The ID for the new place is 2"}` whit code 200
+
+else
+
+`{"Error":"it has ocurred an error"}` whit code 500
+
+
+### Show the place for id
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/place/{id}
+
+>**Request:** This Method does not recive the parameters, only the id on the URL. For Example:
+```php
+			'http://xook.com.gt:88/api/place/1'
+```
+
+>**Response:** If the city whit this ID exist then xook service returned, the country on JSON format.
+```php
+{
+	"id": 1,
+	"name": "Parque de la Merced",
+	"description": "En la banca color negro frente a la fuente"
+	"id_city": "5"
+}
+```
+
+else the place does not exist xook service return, the next message:
+```php
+{
+'msj'=>'The place does not exist'
+}
+```
+
+### Update the City
+>**Method:** PUT
+
+>**URL:** http://xook.com.gt:88/api/city/{id}
+
+>**Request:** In this method it must send the new name for the  province. 
+```php
+			'name' => 'required'
+			'id_province' => 'required|numeric'
+
+			'unique' ='(name, id_province)'
+```
+
+>**Response:** If the cty is updated, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The city has ben updated'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The city does not exist'
+}
+```
+
+### Delete the province
+>**Method:** DELETE
+
+>**URL:** http://xook.com.gt:88/api/city/{id}
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** If the city is delete, xook service return code 200 and the next message:
+```php
+{
+	'msj'=>'The city has ben deleted'
+}
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The province does not exist'
+}
+```
+
+### Get All cities
+>**Method:** GET
+
+>**URL:** http://xook.com.gt:88/api/city-all
+
+>**Request:** This method does not recive parameters.
+
+>**Response:** Return all the cities:
+```php
+[{
+	"id": 5,
+	"name": "Antigua Guatemala",
+	"id_province": "3"
+}, {
+	"id": 3,
+	"name": "nueva",
+	"id_province": "3"
+}, {
+	"id": 4,
+	"name": "san lucas",
+	"id_province": "3"
+}]
+```
+
+else xook service return code 403 and the next message:
+```php
+{
+'Error'=>'The cities does not exist'
+}
+```
+
 ## METHODS FOR TURORIALS
 If you want to allow CORS on a specific middleware group or route, add the `HandleCors` middleware to your group:
 

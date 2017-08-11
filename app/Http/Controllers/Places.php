@@ -36,7 +36,7 @@ class Places extends Controller
     public function store(Request $request)
     {
         //
-        //function for creating a new city
+        //function for creating a new place
         try{
             $this->validate(
                 $request, [
@@ -67,7 +67,26 @@ class Places extends Controller
      */
     public function show($id)
     {
-        //
+        //Return the place on format Json
+        
+        try{
+            $place = Place::find($id);
+
+            if ($place != null)
+            {
+                return response(
+                    $place,
+                    200
+                );
+            }
+            else
+            {
+                return response(['Error:'=> 'The place whit id '.$id.' does not exist'],403);
+            }
+        }catch(\Execption $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
     }
 
     /**
