@@ -41,14 +41,14 @@ class Places extends Controller
             $this->validate(
                 $request, [
                     'name'=> 'required|unique:places,name,NULL,id,id_city,'.$request->id_city,
-                    'descrition' => 'required',
+                    'description' => 'required',
                     'id_city' => 'required|numeric'
                 ]
             );
 
             $place = new Place();
             $place->name = $request->name;
-            $place->descrition = $request->descrition;
+            $place->description = $request->description;
             $place->id_city = $request->id_city;
             $place->save();
 
