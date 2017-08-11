@@ -1051,48 +1051,47 @@ else xook service return code 403 and the next message:
 }
 ```
 
-### Delete the province
+### Delete the place
 >**Method:** DELETE
 
->**URL:** http://xook.com.gt:88/api/city/{id}
+>**URL:** http://xook.com.gt:88/api/place/{id}
 
 >**Request:** This method does not recive parameters.
 
->**Response:** If the city is delete, xook service return code 200 and the next message:
+>**Response:** If the place is delete, xook service return code 200 and the next message:
 ```php
 {
-	'msj'=>'The city has ben deleted'
+	'msj'=>'The place has ben deleted'
 }
 ```
 
 else xook service return code 403 and the next message:
 ```php
 {
-'Error'=>'The province does not exist'
+'Error'=>'The place does not exist'
 }
 ```
 
-### Get All cities
+### Get All place
 >**Method:** GET
 
->**URL:** http://xook.com.gt:88/api/city-all
+>**URL:** http://xook.com.gt:88/api/place-all
 
 >**Request:** This method does not recive parameters.
 
->**Response:** Return all the cities:
+>**Response:** Return all the place:
 ```php
 [{
-	"id": 5,
-	"name": "Antigua Guatemala",
-	"id_province": "3"
-}, {
-	"id": 3,
-	"name": "nueva",
-	"id_province": "3"
-}, {
-	"id": 4,
-	"name": "san lucas",
-	"id_province": "3"
+	"id":1,
+	"name":"Cerro las cruces",
+	"description":"En la banca color negro frente a la fuente",
+	"id_city":"5"
+	}, 
+	{
+	"id":2,
+	"name":"Iglesia la merced",
+	"description":"En la misa del domingo",
+	"id_city":"5"
 }]
 ```
 

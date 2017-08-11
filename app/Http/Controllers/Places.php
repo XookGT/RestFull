@@ -161,5 +161,41 @@ class Places extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $place = Place::find($id);
+
+            if ($place!= null)
+            {
+                $place->delete();
+                return response(['msj'=>'The place has been deleted'],200);
+            }else
+            {
+                return response(['msj'=>'The place does not exist'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'it has ocurred an error'.$e->getMessage()],500);
+        }
+    }
+
+        public function ShowAll()
+    {
+        try
+        {
+            $places = Place::all();
+
+            if($places!=null)
+            {
+                return response($places, 200);
+            }else
+            {
+                return response(['msj'=>'There is not places'],403);
+            }
+
+        }catch(\Exception $e)
+        {
+            return response(['msj'=>'It has ocurred an error. Error: '.$e->getMessage()],500);
+        }
     }
 }
